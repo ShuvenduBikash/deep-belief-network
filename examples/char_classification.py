@@ -26,10 +26,12 @@ validation_generator = test_datagen.flow_from_directory(
 
 for X_train, Y_train in train_generator:
     X_train = X_train.reshape(-1, 64*64*3)
+    Y_train = np.argmax(Y_train, axis=1)
     break
 
 for X_test, Y_test in validation_generator:
     X_train = X_train.reshape(-1, 64*64*3)
+    Y_test = np.argmax(Y_test, axis=1)
     break
 
 # Training
